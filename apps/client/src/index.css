@@ -1,0 +1,57 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #f7f0f0;
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+#root {
+  width: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  overflow: hidden;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+li::marker {
+  color: transparent;
+}
+
+.Scroll {
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+}
+
+.Accordion[data-state="open"] {
+	transform: scaleY(1);
+}
+.Accordion[data-state="closed"] {
+	transform: scaleY(0);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #261e3d;
+    background-color: #f6f6f6;
+  }
+}

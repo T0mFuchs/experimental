@@ -1,0 +1,25 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "VITE_CLIENT_PORT",
+    "VITE_HOST_NAME",
+    "VITE_SERVER_PORT",
+    "VITE_TLS",
+    "DATABASE_URL",
+    "SQLITE_DB_NAME"
+  ],
+  "pipeline": {
+    "build": {
+      "outputs": ["dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {},
+    "migrate": {},
+    "prod": {
+      "dependsOn": ["lint", "build"]
+    }
+  }
+}

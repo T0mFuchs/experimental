@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "license": "MIT",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "dotenv -- turbo run build --parallel --no-daemon",
+    "dev": "dotenv -- turbo run dev --parallel --no-daemon",
+    "d:c": "dotenv -- turbo run dev --scope=client --no-daemon",
+    "d:s": "dotenv -- turbo run dev --scope=server --no-daemon",
+    "m:s": "dotenv -- turbo run migrate --scope=server --no-daemon",
+    "prod": "dotenv -- turbo run prod --parallel --no-daemon",
+    "lint": "turbo run lint --parallel --no-daemon",
+    "compose:up": "docker-compose -f docker-compose.yml up -d --build",
+    "compose:down": "docker-compose -f docker-compose.yml down"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.2.1",
+    "eslint-config-custom": "./packages/eslint-config-custom",
+    "turbo": "^1.9.3",
+    "typescipt": "latest"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "license": "MIT",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development bun index.ts --watch",
+    "build": "bun scripts/build.ts && bun build --minify --outdir=dist --target=bun dist/index.ts",
+    "prod": "cross-env NODE_ENV=production bun dist/index.js",
+    "migrate": "cross-env NODE_ENV=development bun scripts/migrate.ts",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@libsql/client": "^0.1.6",
+    "drizzle-orm": "^0.25.4",
+    "hono": "^3.2.1",
+    "uid": "^2.0.2"
+  },
+  "devDependencies": {
+    "@packages/types": "../../packages/types",
+    "bun-types": "^0.6.2",
+    "cross-env": "^7.0.3",
+    "eslint-config-custom": "../../packages/eslint-config-custom",
+    "typescript": "latest"
+  },
+  "prettierIgnore": [
+    "dist"
+  ],
+  "eslintIgnore": [
+    "node_modules",
+    "dist"
+  ]
+}

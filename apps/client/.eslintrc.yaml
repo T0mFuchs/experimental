@@ -1,0 +1,20 @@
+root: true
+env: 
+  browser: true
+  es2022: true
+extends: 
+  - custom
+  - plugin:unocss/recommended
+  - plugin:react-hooks/recommended
+parserOptions:
+  tsconfigRootDir: ./
+  ecmaVersion: latest
+  ecmaFeatures:
+    jsx: true
+  sourceType: module
+plugins:
+  - react-hooks
+  - react-refresh
+settings:
+  react:
+    version: 18.2.0

@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  client:
+    env_file:
+      - .env
+    container_name: node.client
+    build:
+      context: .
+      dockerfile: ./apps/client/Dockerfile
+      args:
+        - CLIENT_PORT=${VITE_CLIENT_PORT}
+        - SERVER_PORT=${VITE_SERVER_PORT}
+        - HOST_NAME=${VITE_HOST_NAME}
+    restart: always
+    networks:
+      - default_network
+    ports:
+      - "${VITE_CLIENT_PORT}:${VITE_CLIENT_PORT}"
+  server:
+    env_file:
+      - .env
+    container_name: bun.server
+    build:
+      context: .
+      dockerfile: ./apps/server/Dockerfile
+      args:
+        - SERVER_PORT=${VITE_SERVER_PORT}
+        - CLIENT_PORT=${VITE_CLIENT_PORT}
+        - HOST_NAME=${VITE_HOST_NAME}
+        - DATABASE_URL=${DATABASE_URL}
+        - DATABASE_AUTH_TOKEN=${DATABASE_AUTH_TOKEN}
+        - LOCAL_SQLITE_DB_NAME=${LOCAL_SQLITE_DB_NAME}
+    restart: always
+    networks:
+      - default_network
+    ports:
+      - "${VITE_SERVER_PORT}:${VITE_SERVER_PORT}"
+
+networks:
+  default_network:
+    external: true

@@ -1,0 +1,89 @@
+.variables {
+  --switch-border-radius: 50px;
+  --switch-track-length: 50px;
+  --switch-track-height: 32px;
+  --switch-track-border: 2px;
+  --switch-thumb-diameter: 28px;
+  --switch-thumb-offset-left: 1px;
+  --switch-thumb-offset-right: var(--switch-track-length) - var(--switch-thumb-diameter) -
+  var(--switch-thumb-offset-left) - var(--switch-track-border);
+}
+
+.Switch {
+  --color: rgba(70, 70, 70, 0.5);
+  --background-color: rgba(0, 0, 0, 0.02);
+  --cursor: grab;
+
+  position: relative;
+  appearance: none;
+  background-color: var(--background-color);
+  border: 0;
+  border-radius: var(--switch-border-radius);
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: max-content;
+  user-select: none;
+  box-sizing: border-box;
+  outline: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.Track {
+  display: block;
+  box-sizing: border-box;
+  border-radius: var(--switch-border-radius);
+  height: var(--switch-track-height);
+  width: var(--switch-track-length);
+  border: var(--switch-track-border) solid var(--color);
+  transition: background-color 150ms ease;
+}
+
+.ThumbWrapper {
+  position: absolute;
+  top: var(--switch-track-border);
+  left: var(--switch-thumb-offset-left);
+  bottom: var(--switch-track-border);
+  right: var(--switch-track-border);
+}
+
+.Thumb {
+  position: absolute;
+  top: 0;
+  display: block;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 0.1em solid var(--color);
+  border-radius: 50%;
+  width: var(--switch-thumb-diameter);
+  height: var(--switch-thumb-diameter);
+  transform: translate3d(var(--transform), 0, 0);
+}
+
+.OnRegion,
+.OffRegion {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  pointer-events: none;
+}
+
+.OnRegion {
+  right: 0;
+}
+
+.OffRegion {
+  left: 0;
+}
+
+
+.Label {
+  display: inline-flex;
+  flex-direction: column;
+  color: #666;
+  padding: 1rem;
+  gap: 0.8rem;
+}
