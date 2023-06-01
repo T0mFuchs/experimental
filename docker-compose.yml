@@ -30,7 +30,7 @@ services:
         - HOST_NAME=${VITE_HOST_NAME}
         - DATABASE_URL=${DATABASE_URL}
         - DATABASE_AUTH_TOKEN=${DATABASE_AUTH_TOKEN}
-        - LOCAL_SQLITE_DB_NAME=${LOCAL_SQLITE_DB_NAME}
+        - SQLITE_DB_NAME=${SQLITE_DB_NAME}
     restart: always
     networks:
       - default_network
